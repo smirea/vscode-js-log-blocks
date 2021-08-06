@@ -1,8 +1,8 @@
 const options = {
-    indexMultiple: true,
+    indexMultiple: false,
     newlineAfterConsecutiveLogs: true,
     comment: '// ㏒',
-    logPrefix: '[㏒] ',
+    logPrefix: '㏒ | ',
 } as const;
 
 export default options;
