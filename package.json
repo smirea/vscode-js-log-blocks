@@ -1,0 +1,71 @@
+{
+  	"name": "vscode-js-log-blocks",
+	"displayName": "vscode-js-log-blocks",
+	"description": "",
+	"version": "0.0.1",
+	"publisher": "smirea",
+	"engines": {
+		"vscode": "^1.58.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+        "onCommand:vscode-js-log-blocks.wrap",
+		"onCommand:vscode-js-log-blocks.delete"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "vscode-js-log-blocks.wrap",
+				"title": "JS Log: Wrap Selection"
+			},
+			{
+				"command": "vscode-js-log-blocks.delete",
+				"title": "JS Log: Delete all logs"
+			}
+		],
+		"keybindings": [
+			{
+				"key": "CTRL+L CTRL+T",
+				"command": "vscode-js-log-blocks.wrap",
+				"args": { "pattern": "time" }
+			},
+			{
+				"key": "CTRL+L CTRL+G",
+				"command": "vscode-js-log-blocks.wrap",
+				"args": { "pattern": "group" }
+			},
+			{
+				"key": "CTRL+L CTRL+L",
+				"command": "vscode-js-log-blocks.wrap",
+				"args": { "pattern": "log" }
+			},
+			{
+				"key": "CTRL+L CTRL+D",
+				"command": "vscode-js-log-blocks.delete"
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "yarn run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"lint": "eslint src --ext ts",
+		"package": "vsce package -o vscode-js-log-blocks.vsix"
+	},
+	"devDependencies": {
+		"@types/vscode": "^1.58.0",
+		"@types/glob": "^7.1.3",
+		"@types/mocha": "^8.2.2",
+		"@types/node": "14.x",
+		"eslint": "^7.27.0",
+		"@typescript-eslint/eslint-plugin": "^4.26.0",
+		"@typescript-eslint/parser": "^4.26.0",
+		"glob": "^7.1.7",
+		"mocha": "^8.4.0",
+		"typescript": "^4.3.2",
+		"vscode-test": "^1.5.2"
+	}
+}
