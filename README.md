@@ -10,9 +10,7 @@ ctrl+L ctrl+D   - Delete all console statements in all selections
 # Building & Installing
 
 ```bash
-yarn package
-
-code --install-extension vscode-js-log-blocks.vsix
+yarn install-extension
 ```
 
 then restart vscode

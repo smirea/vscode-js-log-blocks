@@ -4,6 +4,9 @@
 	"description": "",
 	"version": "0.0.1",
 	"publisher": "smirea",
+	"repository": {
+		"url": "https://github.com/smirea/vscode-js-log-blocks"
+	},
 	"engines": {
 		"vscode": "^1.58.0"
 	},
@@ -53,6 +56,7 @@
 		"compile": "tsc -p ./",
 		"watch": "tsc -watch -p ./",
 		"lint": "eslint src --ext ts",
+		"install-extension": "yarn package && code --install-extension vscode-js-log-blocks.vsix",
 		"package": "vsce package -o vscode-js-log-blocks.vsix"
 	},
 	"devDependencies": {
