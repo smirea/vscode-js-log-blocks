@@ -31,7 +31,8 @@ export default function annotate({ startPattern, endPattern }: AnnotateOptions) 
         const [startIndent] = lines[0].match(/^\s*/)!;
         const [endIndent] = lines[lines.length - 1].match(/^\s*/)!;
         let [name] = lines[0]
-            .replace(/\b(var|let|const|while|if|then|else|switch|case|break|return)\b/, '')
+            .replace(/\b(var|let|const|while|if|then|else|switch|case|break|return|async|await|function)\b/, '')
+            .replace(/'/g, '')
             .match(/[$\w\d][\w\d_$]+/i) || ['selection'];
 
         if (options.indexMultiple) {
@@ -48,7 +49,7 @@ export default function annotate({ startPattern, endPattern }: AnnotateOptions) 
 
         updates.push({
             name,
-            line: lines[0].trim(),
+            line: lines[0].trim().replace(/'/g, ''),
             prefix,
             start: new vscode.Position(start.line, 0),
             end: new vscode.Position(end.line + 1, 0),
